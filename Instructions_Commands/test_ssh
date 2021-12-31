@@ -1,0 +1,7 @@
+# Commands to test ssh key connection for subnet VMs
+# In this project ex. ssh RedAdmin@10.0.0.6
+
+$ ssh <admin name>@<webserver1 internal IP>
+$ exit
+$ ssh <admin name>@<webserver2 internal IP>
+$ exit
