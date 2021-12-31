@@ -1,0 +1,58 @@
+# Install and configure metricbeat
+
+# In Git Bash
+# Install Metricbeat 
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb;
+# (or whichever updated file is given by the Kibana web page);
+$ dpkg -i metricbeat-7.6.1-amd64.deb; 
+# Update Metricbeat either copy and paste this link https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat
+# into file path /etc/metricbeat/metricbeat.yml or update existing /etc/metricbeat/metricbeat.yml 
+# as follows:
+
+#============================== Kibana =====================================
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+  host: "insert ELK-SERVER private IP:5601"
+
+  # Kibana Host
+  # Scheme and port can be left out and will be set to the default (http and 5601)
+  # In case you specify and additional path, the scheme is required: http://localhost:5601/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:5601
+  #host: "localhost:5601"
+
+  # Kibana Space ID
+  # ID of the Kibana Space into which the dashboards should be loaded. By default,
+  # the Default Space will be used.
+  #space.id:
+
+#-------------------------- Elasticsearch output ------------------------------
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["insert ELK-SERVER private IP:9200"]
+  username: "elastic"
+  password: "changeme"
+
+  # Optional protocol and basic auth credentials.
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
+
+
+******************************************************************************************************
+
+# In Git Bash
+# As user:  ansible container
+# Enable metricbeat
+$ metricbeat modules enable docker
+$ metricbeat setup
+$ metricbeat -e
+
+# In user browser
+# In Elk stack metric beat
+
+
+
+
+
