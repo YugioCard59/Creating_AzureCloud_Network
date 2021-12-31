@@ -1,0 +1,10 @@
+# Commands to create and launch the ansible playbook to install Elk;
+# Commands run as user:  ansible control container within the jump_box;
+
+$ nano /etc/ansible/install-elk.yml
+# Copy and Paste the following yamil rules into install-elk.yml from this link:  ansible_playbook_Elk
+$ ansible-playbook <insert name of ansible playbook>.yml
+$ ssh <insert admin name>@<ELK-SERVER internal IP>
+# ! You are now user:  ELK-SERVER !
+$ sudo docker ps -as
+# Note elk-docker container sebp/elk is running;
