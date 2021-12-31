@@ -1,0 +1,29 @@
+# Adding Filebeat to Elk monitoring
+#Creating filebeat configuration file
+
+Run: $ curl 
+https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml
+
+# If curl command does not work then filebeat configuration file template:  https://github.com/the-Coding-Boot-Camp-at-UT/UTA-VIRT-CYBER-PT-09-2021-U-LOL/blob/master/1-Lesson-Plans/13-Elk-Stack-Project/Activities/Stu_Day_2/Solved/config_files/filebeat-configuration.yml
+# $ nano /etc/ansible/files/filebeat-config.yml and copy and paste the above template into 
+# filebeat-config.yml
+
+# Configure filebeat-config.yml as follows:  in line #1106 and replace the IP address with the 
+# private IP address of ELK-SERVER, keep username and password:  “elastic and “changeme”;
+# In line #1806 replace the IP address with the private IP address of ELK-SERVER;
+
+# Example for this project is as follows:
+
+# output.elasticsearch:
+# hosts: ["<insert ELK-SERVER private IP>:9200"]
+# username: "elastic"
+# password: "changeme"
+
+# setup.kibana:
+# host: "<insert ELK-SERVER private IP>:5601"
+
+
+
+
+
+
