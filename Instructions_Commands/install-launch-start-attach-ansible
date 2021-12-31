@@ -1,0 +1,18 @@
+#Install/Launch/Start and run with interactive terminal (bash)/Attach ansible container with 
+# docker.io
+
+#Definitions:  Docker contains containers (ex. ansible containers) which are specialized VMs 
+# that share general resources but may contain specialized resources as needed.  In this project # ex. the docker container image name is:  cyberxsecurity/ansible; After the container runs a 
+# new container name is produced
+
+#commands for Windows users in Git Bash:
+$ sudo apt update
+$ sudo apt install docker.io
+$ sudo systemctl status docker
+$ sudo systemctl start docker
+$ sudo docker run -ti <insert container image name>:lastest /bin/bash
+$ sudo docker ps -as
+$ sudo docker list -a
+$ sudo docker start <insert container name>
+$ sudo docker attach <insert container name>
+$ exit
