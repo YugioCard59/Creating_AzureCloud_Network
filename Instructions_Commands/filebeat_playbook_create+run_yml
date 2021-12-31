@@ -1,0 +1,56 @@
+# Adding filebeat to Elk monitoring
+# playbook applies to any Debian-flavored Linux server
+# Creating and launching filebeat playbook
+
+$ nano /etc/ansible/filebeat-playbook.yml
+# Within filebeat-playbook.yml copy and paste the following pre-configured template:
+# use either this link https://github.com/the-Coding-Boot-Camp-at-UT/UTA-VIRT-CYBER-PT-09-2021-U-LOL/blob/master/1-Lesson-Plans/13-Elk-Stack-Project/Activities/Stu_Day_2/Solved/config_files/filebeat-configuration.yml 
+# or template shown below:
+
+---
+- name: Installing and Launch Filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+    # Use command module
+  - name: Download filebeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+    # Use command module
+  - name: Install filebeat .deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+
+    # Use copy module
+  - name: Drop in filebeat.yml
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+
+    # Use command module
+  - name: Enable and Configure System Module
+    command: filebeat modules enable system
+
+    # Use command module
+  - name: Setup filebeat
+    command: filebeat setup
+
+    # Use command module
+  - name: Start filebeat service
+    command: service filebeat start
+
+    # Use systemd module
+  - name: Enable service filebeat on boot
+    systemd:
+      name: filebeat
+      enabled: yes
+
+*************************************************************************************************************
+# The above filebeat playbook downloads and installs .deb package, copies 
+# filebeats-configuration.yml to a correct location, allows for curl command, and enables 
+# filebeats
+
+$ ansible-playbook filebeat-playbook.yml
+
+
+
+
