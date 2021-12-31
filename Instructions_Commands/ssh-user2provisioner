@@ -1,0 +1,7 @@
+#Commands to ssh from user to user ansible container
+
+$ ssh <insert resource group admin name>@<jump_box public IP>
+$ sudo docker ps -as
+#note name of ansible container that is needed
+$ sudo docker start <insert container name>
+$ sudo docker attach <insert container name>
