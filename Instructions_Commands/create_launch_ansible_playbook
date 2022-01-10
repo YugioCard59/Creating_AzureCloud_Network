@@ -2,7 +2,7 @@
 # Commands run as user:  ansible control container within the jump_box;
 
 $ nano /etc/ansible/install-elk.yml
-# Copy and Paste the following yamil rules into install-elk.yml from this link:  ansible_playbook_Elk
+# Copy and Paste the following yamil rules into install-elk.yml from this link: https://github.com/YugioCard59/Creating_AzureCloud_Network/blob/37943dc8128aaf786ad99c389402409bccd869c9/Instructions_Commands/ansible_playbook_Elk
 $ ansible-playbook <insert name of ansible playbook>.yml
 $ ssh <insert admin name>@<ELK-SERVER internal IP>
 # ! You are now user:  ELK-SERVER !
